@@ -1,1 +1,5 @@
-Search
+<h1>Looking for Songs?</h1>
+<p class="lead">Search for songs and music in all languages!</p>
+<form>
+	<input type="text" class="form-control" name="searchQuery" [(ngModel)]="seatchQuery" (keyup)="searchMusic()" placeholder="Search Music...">
+</form>
