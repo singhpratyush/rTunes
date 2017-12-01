@@ -13,7 +13,7 @@ const routes: Routes = [
 	{ path: 'about',  component: AboutComponent },
 	{ path: 'artist/:name',  component: ArtistComponent },
 	{ path: 'album/:id',  component: AlbumComponent },
-	{ path: 'country', component: CountryComponent}
+	{ path: 'country', component: CountryComponent},
 	{ path: 'tag/:name',  component: TagComponent }
 ];
  

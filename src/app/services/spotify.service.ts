@@ -36,6 +36,7 @@ export class SpotifyService{
 	searchCountry(country: string){
 		this.countryUrl = 'http://		ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country='+country+'&api_key=73a3a0eaa1cc2d3de22e5b6450ed6652&format=json';
 		return this._http.get(this.countryUrl).map(res => res.json());
+	}
 
 	getTagInfo(tag: string){
 		this.tagUrl = 'http://ws.audioscrobbler.com/2.0/?method=tag.getinfo&tag='+tag+'&api_key=73a3a0eaa1cc2d3de22e5b6450ed6652&format=json';
