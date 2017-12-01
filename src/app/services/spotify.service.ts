@@ -8,6 +8,7 @@ export class SpotifyService{
 	private artistUrl: string;
 	private albumsUrl: string;
 	private albumUrl: string;
+	private countryUrl: string;
 	private tagUrl: string;
 	private tagArtistsUrl: string;
 
@@ -30,6 +31,11 @@ export class SpotifyService{
 	getAlbumInfo(mbid: string){
 		this.albumUrl = 'http://ws.audioscrobbler.com/2.0/?method=album.getinfo&mbid='+mbid+'&api_key=73a3a0eaa1cc2d3de22e5b6450ed6652&format=json';
 		return this._http.get(this.albumUrl).map(res => res.json());
+	}
+  
+	searchCountry(country: string){
+		this.countryUrl = 'http://		ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country='+country+'&api_key=73a3a0eaa1cc2d3de22e5b6450ed6652&format=json';
+		return this._http.get(this.countryUrl).map(res => res.json());
 	}
 
 	getTagInfo(tag: string){
