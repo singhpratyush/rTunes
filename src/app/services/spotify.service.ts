@@ -9,6 +9,8 @@ export class SpotifyService{
 	private albumsUrl: string;
 	private albumUrl: string;
 	private countryUrl: string;
+	private tagUrl: string;
+	private tagArtistsUrl: string;
 
 	constructor(private _http:Http){}
 	searchArtist(str: string){
@@ -30,9 +32,18 @@ export class SpotifyService{
 		this.albumUrl = 'http://ws.audioscrobbler.com/2.0/?method=album.getinfo&mbid='+mbid+'&api_key=73a3a0eaa1cc2d3de22e5b6450ed6652&format=json';
 		return this._http.get(this.albumUrl).map(res => res.json());
 	}
-	
+  
 	searchCountry(country: string){
 		this.countryUrl = 'http://		ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country='+country+'&api_key=73a3a0eaa1cc2d3de22e5b6450ed6652&format=json';
 		return this._http.get(this.countryUrl).map(res => res.json());
+
+	getTagInfo(tag: string){
+		this.tagUrl = 'http://ws.audioscrobbler.com/2.0/?method=tag.getinfo&tag='+tag+'&api_key=73a3a0eaa1cc2d3de22e5b6450ed6652&format=json';
+		return this._http.get(this.tagUrl).map(res => res.json());
+	}
+
+	getTagArtists(tag: string){
+		this.tagArtistsUrl = 'http://ws.audioscrobbler.com/2.0/?method=tag.gettopartists&tag='+tag+'&api_key=73a3a0eaa1cc2d3de22e5b6450ed6652&format=json&limit=10';
+		return this._http.get(this.tagArtistsUrl).map(res => res.json());
 	}
 }
