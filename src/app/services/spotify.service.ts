@@ -13,6 +13,7 @@ export class SpotifyService{
 	private tagUrl: string;
 	private tagArtistsUrl: string;
 
+
 	apiToken = environment.apiToken;
 
 	constructor(private _http:Http){}
@@ -37,17 +38,24 @@ export class SpotifyService{
 	}
   
 	searchCountry(country: string){
+
 		this.countryUrl = 'http://		ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country='+country+'&api_key='+this.apiToken+'&format=json';
+
+
 		return this._http.get(this.countryUrl).map(res => res.json());
 	}
 
 	getTagInfo(tag: string){
+
 		this.tagUrl = 'http://ws.audioscrobbler.com/2.0/?method=tag.getinfo&tag='+tag+'&api_key='+this.apiToken+'&format=json';
+
 		return this._http.get(this.tagUrl).map(res => res.json());
 	}
 
 	getTagArtists(tag: string){
+
 		this.tagArtistsUrl = 'http://ws.audioscrobbler.com/2.0/?method=tag.gettopartists&tag='+tag+'&api_key='+this.apiToken+'&format=json&limit=10';
+
 		return this._http.get(this.tagArtistsUrl).map(res => res.json());
 	}
 }
