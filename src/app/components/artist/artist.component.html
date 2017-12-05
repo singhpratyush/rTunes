@@ -6,8 +6,12 @@
 					<div class="col-md-4">
 						<img src="{{artist.image[4]['#text']}}" alt="{{artist.name}}" class="img-rounded" height="300" width="300">
 					</div>
-					<div class="col-md-8">
-						<h2>{{artist.name}}</h2>
+					<div class="col-md-8" id="rating-data">
+						<h2>
+							{{artist.name}}
+						<div *ngFor="let a of rateArray;let idx=index" class="fa fa-star checked">
+						</div>
+						</h2>
 						<span class="label label-danger" *ngFor="let tag of artist.tags.tag">
 							<a href="tag/{{tag.name}}">{{tag.name}}</a>
 						</span>

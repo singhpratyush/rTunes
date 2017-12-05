@@ -7,7 +7,11 @@
 						<img src="{{album.image[4]['#text']}}" alt="{{album.name}}" class="img-rounded" height="300" width="300">
 					</div>
 					<div class="col-md-8">
-						<h2>{{album.name}} by {{album.artist}}</h2>
+						<h2>
+							{{album.name}} by {{album.artist}}
+							<div *ngFor="let a of rateArray;let idx=index" class="fa fa-star checked">
+						</div>
+						</h2>
 						<span class="label label-danger" *ngFor="let tag of album.tags.tag">{{tag.name}}</span>
 						<div *ngIf="album.wiki" class="content"><small [innerHTML]="album.wiki.summary"></small></div>
 						<div *ngIf="album.wiki" class="publish-date">Released on {{album.wiki.published}}</div>
