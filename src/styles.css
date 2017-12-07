@@ -1,4 +1,4 @@
-zzh1 {
+h1 {
   color: #369;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 250%;
@@ -37,7 +37,4 @@ a {
 }
 .checked {
     color: orange;
-}
-#no-display{
-	display:none;
 }
