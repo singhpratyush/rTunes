@@ -12,9 +12,12 @@ import { ArtistComponent } from './components/artist/artist.component';
 import { AlbumComponent } from './components/album/album.component';
 import { TagComponent } from './components/tag/tag.component';
 
+import { PagerService } from './services/pager.service';
+
 @NgModule({
   imports:      [ BrowserModule, AppRoutingModule, HttpModule, FormsModule ],
   declarations: [ AppComponent, NavbarComponent, AboutComponent, SearchComponent, ArtistComponent, AlbumComponent, TagComponent],
+  providers: [PagerService],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
