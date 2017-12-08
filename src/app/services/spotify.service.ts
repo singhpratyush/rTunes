@@ -27,8 +27,8 @@ export class SpotifyService{
 		return this._http.get(this.artistUrl).map(res => res.json());
 	}
 
-	getAlbums(name: string){
-		this.albumsUrl = 'http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist='+name+'&api_key='+this.apiToken+'&format=json&limit=10';
+	getAlbums(name: string, limit: number){
+		this.albumsUrl = 'http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist='+name+'&api_key='+this.apiToken+'&format=json&limit='+limit;
 		return this._http.get(this.albumsUrl).map(res => res.json());
 	}
 
