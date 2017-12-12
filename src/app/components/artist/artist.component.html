@@ -52,7 +52,7 @@
 	                <a (click)="setPage(pager.currentPage + 1)">Next</a>
 	            </li>
 	            <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-	                <span><a (click)="setPage(pager.totalPages)" class="button">Last</a></span>
+	                <a (click)="setPage(pager.totalPages)" class="button">Last</a>
 	            </li>
 	        </ul>
 	    </div>

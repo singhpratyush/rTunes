@@ -22,11 +22,10 @@ export class PagerService {
         let startIndex = (currentPage - 1) * pageSize;
         let endIndex = Math.min(startIndex + pageSize - 1, totalItems - 1);
 
-        let pageNos1: number[] = [];
+        let pageNos: number[] = [];
         for(let i=startPage; i< endPage+1;i++) {
-            pageNos1.push(i);
+            pageNos.push(i);
         }
-        console.log(pageNos1);
 
         return {
             totalItems: totalItems,
@@ -37,7 +36,7 @@ export class PagerService {
             endPage: endPage,
             startIndex: startIndex,
             endIndex: endIndex,
-            pageNos: pageNos1
+            pageNos: pageNos
         };
     }
 }

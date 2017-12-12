@@ -17,8 +17,8 @@ export class SpotifyService{
 	apiToken = environment.apiToken;
 
 	constructor(private _http:Http){}
-	searchArtist(str: string){
-		this.searchUrl = 'http://ws.audioscrobbler.com/2.0/?method=artist.search&artist='+str+'&api_key='+this.apiToken+'&format=json&limit=10';
+	searchArtist(str: string, limit: number){
+		this.searchUrl = 'http://ws.audioscrobbler.com/2.0/?method=artist.search&artist='+str+'&api_key='+this.apiToken+'&format=json&limit='+limit;
 		return this._http.get(this.searchUrl).map(res => res.json());
 	}
 
