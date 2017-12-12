@@ -3,4 +3,5 @@ export class Album{
 	name: string;
 	url: string;
 	image: string;
+	tracks: any;
 }
