@@ -10,3 +10,5 @@ Clone the Repository followed by:
 
 - `npm install`
 - `npm start`
+
+![rTunes](https://user-images.githubusercontent.com/26346816/34041794-b2440e98-e1bf-11e7-9689-36b92bba0efe.gif)
