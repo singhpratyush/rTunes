@@ -27,6 +27,11 @@ export class SpotifyService{
 		return this._http.get(this.artistUrl).map(res => res.json());
 	}
 
+	searchAlbum(str: string, limit: number){
+		this.searchUrl = 'http://ws.audioscrobbler.com/2.0/?method=album.search&album='+str+'&api_key='+this.apiToken+'&format=json&limit='+limit;
+		return this._http.get(this.searchUrl).map(res => res.json());
+	}
+
 	getAlbums(name: string, limit: number){
 		this.albumsUrl = 'http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist='+name+'&api_key='+this.apiToken+'&format=json&limit='+limit;
 		return this._http.get(this.albumsUrl).map(res => res.json());
@@ -35,6 +40,11 @@ export class SpotifyService{
 	getAlbumInfo(mbid: string){
 		this.albumUrl = 'http://ws.audioscrobbler.com/2.0/?method=album.getinfo&mbid='+mbid+'&api_key='+this.apiToken+'&format=json';
 		return this._http.get(this.albumUrl).map(res => res.json());
+	}
+
+	searchTrack(str: string, limit: number){
+		this.searchUrl = 'http://ws.audioscrobbler.com/2.0/?method=track.search&track='+str+'&api_key='+this.apiToken+'&format=json&limit='+limit;
+		return this._http.get(this.searchUrl).map(res => res.json());
 	}
   
 	searchCountry(country: string){

@@ -1,11 +1,20 @@
 <h1>Looking for Songs?</h1>
 <p class="lead">Search for songs and music in all languages!</p>
+<div>
+    <h4>Search for :</h4>
+    <input [(ngModel)]="searchCategory" name="searchCategory" value="Artist" type="radio" (click)="searchBasedOnCategory('Artist')">
+    	<label><h4>Artist&nbsp;&nbsp;</h4></label>
+    <input  [(ngModel)]="searchCategory" name="searchCategory" value="Track" type="radio" (click)="searchBasedOnCategory('Track')">
+    	<label><h4>Track&nbsp;&nbsp;</h4></label>
+    <input  [(ngModel)]="searchCategory" name="searchCategory" value="Album" type="radio" (click)="searchBasedOnCategory('Album')">
+    	<label><h4>Album</h4></label>
+</div>
 <form>
-	<input type="text" class="form-control" name="searchQuery" [(ngModel)]="searchQuery" (keyup)="searchArtist()" placeholder="Search Artist or Band..." autofocus>
+	<input type="text" class="form-control" name="searchQuery" [(ngModel)]="searchQuery" (keyup)="searchBasedOnCategory('')" placeholder="Search Artist or Band or Track or Album...." autofocus>
 </form>
 
-<div *ngIf="searchRes">
-	<div class="row">
+<div *ngIf="searchRes && searchCategory">
+	<div *ngIf="searchCategory == 'Artist'" class="row">
 		<div class="col-md-12">
 			<div class="well" *ngFor="let res of pagedItems">
 				<img src="{{res.image[3]['#text']}}" height="50" alt="{{res.name}}">
@@ -13,7 +22,31 @@
 			</div>
 		</div>
 	</div>
-
+	<div *ngIf="searchCategory == 'Track'" class="row">
+		<div class="col-md-12">
+			<div class="well" *ngFor="let track of pagedItems">
+				<img src="{{track.image[3]['#text']}}" height="50" onError="this.src='http://via.placeholder.com/50x50';"
+				 alt="{{track.name}}">
+				<a>{{track.name}}</a>
+				<a href="https://www.youtube.com/results?search_query={{track.name}}" target="_blank">
+					<img src="https://www.youtube.com/yt/about/media/images/brand-resources/icons/YouTube_icon_full-color.svg" height="50" alt="Watch on Youtube" class="pull-right">
+				</a>
+				<a href="{{track.url}}" target="_blank" class="btn btn-success pull-right">Play</a>
+			</div>
+		</div>
+	</div>
+	<div *ngIf="searchCategory == 'Album'" class="row">
+		<div class="col-md-12">
+			<div class="well" *ngFor="let album of pagedItems">
+				<img src="{{album.image[3]['#text']}}" height="50" onError="this.src='http://via.placeholder.com/50x50';"
+				 alt="{{album.name}}">
+				<a href="album/{{album.mbid}}">{{album.name}}</a>
+				<a href="https://www.youtube.com/results?search_query={{album.name}}" target="_blank">
+					<img src="https://www.youtube.com/yt/about/media/images/brand-resources/icons/YouTube_icon_full-color.svg" height="50" alt="Watch on Youtube" class="pull-right">
+				</a>
+			</div>
+		</div>
+	</div>
 	<div class="row">
 		<div class="col-md-12 text-center">
 			<ul *ngIf="pager.pageNos && pager.pageNos.length" class="pagination pagination-lg">
