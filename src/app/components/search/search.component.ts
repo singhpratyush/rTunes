@@ -17,22 +17,31 @@ export class SearchComponent {
 	pagedItems: any[];
 	constructor(private _spotifyService:SpotifyService, private _pagerService: PagerService) {}
 	searchArtist() {
-		this._spotifyService.searchArtist(this.searchQuery,200).subscribe(res => {
-			this.searchRes = res.results.artistmatches.artist;
-			this.setPage(1);
-		})
+		if(this.searchQuery != undefined && this.searchQuery != '')
+		{
+			this._spotifyService.searchArtist(this.searchQuery,200).subscribe(res => {
+				this.searchRes = res.results.artistmatches.artist;
+				this.setPage(1);
+			})
+		}
 	}
 	searchTrack() {
-		this._spotifyService.searchTrack(this.searchQuery,200).subscribe(res => {
-			this.searchRes = res.results.trackmatches.track;
-			this.setPage(1);
-		})
+		if(this.searchQuery != undefined && this.searchQuery != '')
+		{
+			this._spotifyService.searchTrack(this.searchQuery,200).subscribe(res => {
+				this.searchRes = res.results.trackmatches.track;
+				this.setPage(1);
+			})
+		}
 	}
 	searchAlbum() {
-		this._spotifyService.searchAlbum(this.searchQuery,200).subscribe(res => {
-			this.searchRes = res.results.albummatches.album;
-			this.setPage(1);
-		})
+		if(this.searchQuery != undefined && this.searchQuery != '')
+		{
+			this._spotifyService.searchAlbum(this.searchQuery,200).subscribe(res => {
+				this.searchRes = res.results.albummatches.album;
+				this.setPage(1);
+			})
+		}
 	}
 	setPage(page: number) {
         if (page < 1 || page > this.pager.totalPages) {
