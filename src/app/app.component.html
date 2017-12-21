@@ -2,3 +2,9 @@
 <div class="container">
 	<router-outlet></router-outlet>
 </div>
+<!--Scroll to top-->
+<div class="scroll-to-top" [ngClass]="{'show-scroll': navIsFixed}">
+    <button class="scroll" (click)="scrollToTop()">
+        Top
+    </button>
+</div>

@@ -12,6 +12,7 @@ import { LocationService } from '../../services/location.service';
   styleUrls: ['./search.component.css'],
   providers: [SpotifyService]
 })
+
 export class SearchComponent {
 	searchQuery: string;
 	searchCategory: string;
@@ -26,6 +27,7 @@ export class SearchComponent {
 	public carouselTileOneItems: Array<any> = [];
 	public carouselTileTwoItems: Array<any> = [];
   	public carouselTileOne: NgxCarousel;
+  	
 
 	constructor(private _spotifyService:SpotifyService, private _pagerService: PagerService, private _locationService:LocationService) {}
 
@@ -180,5 +182,7 @@ export class SearchComponent {
 				});
 		
 		}
+
+
 
 }

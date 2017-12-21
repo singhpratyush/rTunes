@@ -4,6 +4,7 @@ import { Album } from '../../../../Album';
 import { ActivatedRoute } from '@angular/router';
 import { PagerService } from '../../services/pager.service';
 
+
 @Component({
   moduleId: module.id,
   selector: 'album',
@@ -16,6 +17,8 @@ export class AlbumComponent implements OnInit{
 	rateArray: number[];
 	pager: any = {};
 	pagedItems: any[];
+	
+
 	constructor(private _spotifyService:SpotifyService, private _route:ActivatedRoute, private _pagerService: PagerService) {}
 
 	ngOnInit() {
@@ -58,4 +61,5 @@ export class AlbumComponent implements OnInit{
 			return 1;
 		}
 	}
+
 }
