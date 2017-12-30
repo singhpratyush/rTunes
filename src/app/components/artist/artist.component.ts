@@ -29,7 +29,9 @@ export class ArtistComponent implements OnInit{
 				this.rateArray = new Array(this.findArtistRating());
 			})
 			this._spotifyService.getAlbums(name,200).subscribe(albums => {
-				this.albums = albums.topalbums.album;
+				this.albums = albums.topalbums.album.filter(function (album:any) {
+					return album.mbid;
+				});
 				this.setPage(1);
 			})
 		})
